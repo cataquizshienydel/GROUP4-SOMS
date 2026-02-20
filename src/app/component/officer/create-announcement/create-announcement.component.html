@@ -1,0 +1,82 @@
+<!-- create-announcement.component.html -->
+<div class="page-wrapper">
+
+  <!-- Header -->
+  <div class="page-header">
+    <button class="back-btn" (click)="goBack()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+        fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/>
+      </svg>
+      Back to Dashboard
+    </button>
+    <h2 class="page-title">Create Announcement</h2>
+  </div>
+
+  <!-- Form Card -->
+  <div class="form-card">
+
+    <!-- Title -->
+    <div class="form-group">
+      <label class="form-label">Title <span class="required">*</span></label>
+      <input type="text" class="form-input" placeholder="Enter announcement title"
+        [(ngModel)]="title" name="title" />
+    </div>
+
+    <!-- Content -->
+    <div class="form-group">
+      <label class="form-label">Content <span class="required">*</span></label>
+      <textarea class="form-textarea" placeholder="Enter announcement content"
+        [(ngModel)]="content" name="content" rows="6"></textarea>
+    </div>
+
+    <!-- Target Courses -->
+    <div class="form-group">
+      <label class="form-label">Target Courses <span class="required">*</span></label>
+      <div class="checkbox-list">
+        <label class="checkbox-item" *ngFor="let course of courses">
+          <input type="checkbox" [(ngModel)]="course.selected" [name]="course.abbr" />
+          <div class="checkbox-content">
+            <span class="checkbox-abbr">{{ course.abbr }}</span>
+            <span class="checkbox-name">{{ course.name }}</span>
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <!-- Attach Image -->
+    <div class="form-group">
+      <label class="form-label">Attach Image (Optional)</label>
+      <button class="upload-btn" (click)="fileInput.click()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+          fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="17 8 12 3 7 8"/>
+          <line x1="12" y1="3" x2="12" y2="15"/>
+        </svg>
+        Choose Image
+      </button>
+      <input #fileInput type="file" accept="image/*" style="display:none" (change)="onFileChange($event)" />
+      <span *ngIf="selectedFileName" class="file-name">{{ selectedFileName }}</span>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="form-actions">
+      <button class="cancel-btn" (click)="goBack()">Cancel</button>
+      <button class="submit-btn" (click)="onSubmit()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+          fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="22" y1="2" x2="11" y2="13"/>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+        </svg>
+        Submit
+      </button>
+    </div>
+
+    <!-- Note -->
+    <div class="note-box">
+      <strong>Note:</strong> Your announcement will be submitted for admin approval before students can see it.
+    </div>
+
+  </div>
+</div>
