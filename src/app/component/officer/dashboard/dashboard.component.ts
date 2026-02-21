@@ -1,4 +1,4 @@
-// officer-dashboard.component.ts
+
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
@@ -18,8 +18,8 @@ interface Announcement {
   selector: 'app-officer-dashboard',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './dashboard.component.html',  // ✅ CORRECT
-styleUrls: ['./dashboard.component.css']    // ✅ CORRECT
+  templateUrl: './dashboard.component.html',  
+styleUrls: ['./dashboard.component.css']    
 })
 export class OfficerDashboardComponent implements OnInit {
 
