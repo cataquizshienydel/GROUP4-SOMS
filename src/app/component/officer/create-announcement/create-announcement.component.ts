@@ -19,8 +19,8 @@ export class CreateAnnouncementComponent {
 
   courses = [
     { abbr: 'IT', name: 'Information Technology', selected: false },
-    { abbr: 'EMT', name: 'Emergency Medical Technology', selected: false },
-    { abbr: 'TCM', name: 'Traditional Chinese Medicine', selected: false }
+    { abbr: 'EMT', name: 'Electro-Mechanical Technology', selected: false },
+    { abbr: 'TCM', name: 'Technology Communication Management', selected: false }
   ];
 
   constructor(private router: Router) {}

@@ -1,14 +1,15 @@
 {
   "name": "group4",
   "version": "0.0.0",
-  "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "serve:ssr:Group4": "node dist/group4/server/server.mjs"
-  },
+ "scripts": {
+  "ng": "ng",
+  "start": "ng serve",
+  "build": "ng build",
+  "watch": "ng build --watch --configuration development",
+  "test": "ng test",
+  "serve:ssr:Group4": "node dist/group4/server/server.mjs",
+  "server": "json-server --watch db.json --port 3000"
+},
   "private": true,
   "dependencies": {
     "@angular/animations": "^17.3.0",
@@ -21,10 +22,14 @@
     "@angular/platform-server": "^17.3.0",
     "@angular/router": "^17.3.0",
     "@angular/ssr": "^17.3.17",
+    "@primeng/themes": "^21.0.4",
     "baseline-browser-mapping": "^2.9.19",
     "caniuse-lite": "^1.0.30001770",
     "express": "^4.18.2",
+    "primeicons": "^7.0.0",
+    "primeng": "^21.1.1",
     "rxjs": "~7.8.0",
+    "sweetalert2": "^11.26.21",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"
   },
@@ -37,6 +42,7 @@
     "@types/node": "^18.18.0",
     "autoprefixer": "^10.4.24",
     "jasmine-core": "~5.1.0",
+    "json-server": "^0.17.4",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",

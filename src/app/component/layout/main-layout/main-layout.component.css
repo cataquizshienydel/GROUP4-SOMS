@@ -1,0 +1,16 @@
+/* main-layout.component.css */
+.layout-wrapper { display: flex; flex-direction: column; min-height: 100vh; }
+
+.layout-body {
+  display: flex;
+  margin-top: 60px; /* topbar height */
+  min-height: calc(100vh - 60px);
+}
+
+.content-area {
+  flex: 1;
+  padding: 24px;
+  background: #f0f4ff;
+  transition: margin-left 0.3s ease;
+  overflow-y: auto;
+}

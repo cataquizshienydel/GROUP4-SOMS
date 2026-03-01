@@ -1,0 +1,9 @@
+{
+  "users": [
+    { "id": 1, "role": "admin", "email": "admin@ustp.edu.ph", "password": "admin123", "name": "Admin User" },
+    { "id": 2, "role": "officer", "email": "officer@ustp.edu.ph", "password": "officer123", "name": "Officer John" },
+    { "id": 3, "role": "student", "studentId": "2024303763", "password": "student123", "name": "Student User", "course": "IT" }
+  ],
+  "announcements": [],
+  "events": []
+}
