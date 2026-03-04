@@ -49,7 +49,7 @@ export class QrCodesComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {}
 
   ngAfterViewInit(): void {
-    // Generate QR codes after view is initialized
+   
     setTimeout(() => {
       this.courses.forEach(course => {
         this.generateQR(course);
