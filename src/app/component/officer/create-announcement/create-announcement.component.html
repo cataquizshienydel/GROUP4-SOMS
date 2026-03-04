@@ -1,7 +1,7 @@
-<!-- create-announcement.component.html -->
+
 <div class="page-wrapper">
 
-  <!-- Header -->
+  
   <div class="page-header">
     <button class="back-btn" (click)="goBack()">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
@@ -13,24 +13,24 @@
     <h2 class="page-title">Create Announcement</h2>
   </div>
 
-  <!-- Form Card -->
+
   <div class="form-card">
 
-    <!-- Title -->
+  
     <div class="form-group">
       <label class="form-label">Title <span class="required">*</span></label>
       <input type="text" class="form-input" placeholder="Enter announcement title"
         [(ngModel)]="title" name="title" />
     </div>
 
-    <!-- Content -->
+
     <div class="form-group">
       <label class="form-label">Content <span class="required">*</span></label>
       <textarea class="form-textarea" placeholder="Enter announcement content"
         [(ngModel)]="content" name="content" rows="6"></textarea>
     </div>
 
-    <!-- Target Courses -->
+ 
     <div class="form-group">
       <label class="form-label">Target Courses <span class="required">*</span></label>
       <div class="checkbox-list">
@@ -60,7 +60,7 @@
       <span *ngIf="selectedFileName" class="file-name">{{ selectedFileName }}</span>
     </div>
 
-    <!-- Action Buttons -->
+    
     <div class="form-actions">
       <button class="cancel-btn" (click)="goBack()">Cancel</button>
       <button class="submit-btn" (click)="onSubmit()">
@@ -73,7 +73,7 @@
       </button>
     </div>
 
-    <!-- Note -->
+ 
     <div class="note-box">
       <strong>Note:</strong> Your announcement will be submitted for admin approval before students can see it.
     </div>
