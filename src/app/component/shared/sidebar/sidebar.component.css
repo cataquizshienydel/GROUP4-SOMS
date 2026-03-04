@@ -15,7 +15,7 @@
 
 .sidebar.collapsed { width: 64px; }
 
-/* Profile */
+
 .sidebar-profile {
   display: flex; align-items: center; gap: 12px;
   padding: 10px 16px; margin-bottom: 8px;
@@ -34,7 +34,7 @@
 
 .sidebar-divider { height: 1px; background: rgba(255,255,255,0.1); margin: 0 16px 12px; }
 
-/* Nav */
+
 .sidebar-nav { display: flex; flex-direction: column; gap: 4px; padding: 0 8px; }
 
 .nav-item {
@@ -52,7 +52,7 @@
 .nav-item svg { flex-shrink: 0; }
 .nav-label { overflow: hidden; text-overflow: ellipsis; }
 
-/* Tablet - auto collapse */
+
 @media (max-width: 1024px) {
   .sidebar { width: 64px; }
   .sidebar .profile-info,
@@ -63,7 +63,7 @@
   .nav-item.active { border-left: 3px solid #00b4d8; padding-left: 8px; }
 }
 
-/* Mobile - hidden by default, shown as overlay */
+
 @media (max-width: 768px) {
   .sidebar {
     position: fixed;
