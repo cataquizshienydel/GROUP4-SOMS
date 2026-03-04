@@ -64,18 +64,18 @@ export class QrCodesComponent implements OnInit, AfterViewInit {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    // Simple QR-like visual pattern using canvas
+   
     const size = 120;
     const moduleSize = 10;
     const modules = size / moduleSize;
 
-    // Parse color for QR
+
     const color = course.color;
 
     ctx.fillStyle = '#ffffff';
     ctx.fillRect(0, 0, size, size);
 
-    // Generate pseudo-random pattern based on course data
+   
     const data = course.qrData;
     let seed = 0;
     for (let i = 0; i < data.length; i++) {
@@ -89,7 +89,7 @@ export class QrCodesComponent implements OnInit, AfterViewInit {
 
     ctx.fillStyle = color;
 
-    // Draw finder patterns (corners)
+   
     const drawFinder = (x: number, y: number) => {
       ctx.fillStyle = color;
       ctx.fillRect(x, y, moduleSize * 7, moduleSize * 7);
@@ -103,7 +103,7 @@ export class QrCodesComponent implements OnInit, AfterViewInit {
     drawFinder((modules - 7) * moduleSize, 0);
     drawFinder(0, (modules - 7) * moduleSize);
 
-    // Fill data area with pattern
+
     ctx.fillStyle = color;
     for (let row = 0; row < modules; row++) {
       for (let col = 0; col < modules; col++) {
