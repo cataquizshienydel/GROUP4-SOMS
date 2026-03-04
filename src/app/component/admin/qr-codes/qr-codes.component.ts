@@ -1,4 +1,4 @@
-// qr-codes.component.ts
+
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
