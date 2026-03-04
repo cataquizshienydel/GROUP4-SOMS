@@ -1,4 +1,4 @@
-/* create-announcement.component.css */
+
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap');
 
 :host { font-family: 'Outfit', sans-serif; }
@@ -97,7 +97,7 @@
 .form-textarea::placeholder { color: rgba(255,255,255,0.4); }
 .form-textarea:focus { border-color: #00b4d8; }
 
-/* Checkboxes */
+
 .checkbox-list { display: flex; flex-direction: column; gap: 8px; }
 
 .checkbox-item {
@@ -118,7 +118,7 @@
 .checkbox-abbr { font-size: 0.9rem; font-weight: 700; color: #ffffff; }
 .checkbox-name { font-size: 0.75rem; color: rgba(255,255,255,0.6); }
 
-/* Upload */
+
 .upload-btn {
   display: flex;
   align-items: center;
@@ -176,7 +176,7 @@
 }
 .submit-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(0, 180, 216, 0.45); }
 
-/* Note */
+
 .note-box {
   background: rgba(251, 191, 36, 0.15);
   border: 1px solid rgba(251, 191, 36, 0.3);
