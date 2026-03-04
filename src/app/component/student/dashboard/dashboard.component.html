@@ -1,4 +1,4 @@
-<!-- student-dashboard.component.html -->
+
 <div class="dashboard-wrapper">
 
   <div class="action-section">
@@ -14,7 +14,6 @@
     </button>
   </div>
 
-  <!-- Filter by Course -->
   <div class="filter-card">
     <div class="filter-label">
       <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"
@@ -31,7 +30,7 @@
     </div>
   </div>
 
-  <!-- Announcements -->
+
   <div class="announcements-container">
     <div *ngFor="let announcement of filteredAnnouncements" class="announcement-card">
 
@@ -51,13 +50,13 @@
       <div class="card-courses">{{ announcement.courses }}</div>
       <p class="card-content">{{ announcement.content }}</p>
 
-      <!-- Image -->
+  
       <div *ngIf="announcement.image" class="card-image">
         <img [src]="announcement.image" alt="Announcement" />
         <span class="zoom-label">Click to zoom</span>
       </div>
 
-      <!-- Reactions -->
+  
       <div class="card-reactions">
         <button class="reaction-btn" [class.active-like]="announcement.liked" (click)="toggleLike(announcement)">
           <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"
@@ -87,11 +86,11 @@
         </button>
       </div>
 
-      <!-- Comments Section -->
+
       <div class="comments-section" *ngIf="announcement.showComments">
         <div class="comments-divider"></div>
 
-        <!-- Comment List -->
+
         <div class="comment-list" *ngIf="announcement.commentList.length > 0">
           <div class="comment-item" *ngFor="let comment of announcement.commentList">
             <div class="comment-avatar">{{ comment.author.charAt(0) }}</div>
@@ -115,7 +114,7 @@
           No comments yet. Be the first!
         </div>
 
-        <!-- Comment Input -->
+  
         <div class="comment-input-row">
           <div class="comment-avatar-self">B</div>
           <input
