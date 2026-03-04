@@ -1,7 +1,8 @@
 // src/app/services/auth.service.ts
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -10,11 +11,20 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   login(credentials: { email?: string; studentId?: string; password: string }): Observable<any[]> {
-    if (credentials.email) {
-      return this.http.get<any[]>(`${this.apiUrl}/users?email=${credentials.email}&password=${credentials.password}`);
-    } else {
-      return this.http.get<any[]>(`${this.apiUrl}/users?studentId=${credentials.studentId}&password=${credentials.password}`);
-    }
+    // Get ALL users then filter manually to avoid JSON Server query issues
+    return this.http.get<any[]>(`${this.apiUrl}/users`).pipe(
+      map(users => {
+        return users.filter(user => {
+          const passwordMatch = user.password === credentials.password;
+          if (credentials.email) {
+            return user.email === credentials.email && passwordMatch;
+          } else {
+            return user.studentId === credentials.studentId && passwordMatch;
+          }
+        });
+      }),
+      catchError(() => of([]))
+    );
   }
 
   getUsers(): Observable<any[]> {

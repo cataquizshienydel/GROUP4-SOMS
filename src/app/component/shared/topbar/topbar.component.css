@@ -1,32 +1,20 @@
-/* topbar.component.css */
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap');
 :host { font-family: 'Outfit', sans-serif; display: block; }
 
 .topbar {
   width: 100%; height: 60px;
   background: linear-gradient(90deg, #1e3d78 0%, #2a4a8a 100%);
   display: flex; align-items: center; justify-content: space-between;
-  padding: 0 20px; box-sizing: border-box;
+  padding: 0 16px; box-sizing: border-box;
   box-shadow: 0 2px 12px rgba(0,0,0,0.2);
   position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
 }
 
-.topbar-left { display: flex; align-items: center; gap: 14px; }
-
-.hamburger-btn {
-  background: rgba(255,255,255,0.1); border: none; border-radius: 8px;
-  color: #ffffff; width: 36px; height: 36px;
-  display: flex; align-items: center; justify-content: center;
-  cursor: pointer; transition: background 0.2s;
-}
-.hamburger-btn:hover { background: rgba(255,255,255,0.2); }
-
+.topbar-left { display: flex; align-items: center; gap: 10px; }
 .topbar-brand { display: flex; align-items: center; gap: 10px; }
-.brand-logo { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; }
+.brand-logo { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; object-position: center 60%; background: #fff; }
 .brand-name { font-size: 1rem; font-weight: 700; color: #ffffff; }
 
-.topbar-right { display: flex; align-items: center; gap: 14px; }
-
+.topbar-right { display: flex; align-items: center; gap: 12px; }
 .user-info { display: flex; align-items: center; gap: 10px; }
 
 .user-avatar {
@@ -40,12 +28,44 @@
 .user-name { font-size: 0.85rem; font-weight: 600; color: #ffffff; line-height: 1.2; }
 .user-role { font-size: 0.72rem; color: rgba(255,255,255,0.6); }
 
+/* Hamburger button */
+.hamburger-btn {
+  background: rgba(255,255,255,0.1);
+  border: none; border-radius: 8px;
+  color: #ffffff; width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: background 0.2s;
+  font-size: 1rem;
+}
+.hamburger-btn:hover { background: rgba(255,255,255,0.2); }
+
+
 .logout-btn {
   display: flex; align-items: center; gap: 6px;
-  background: rgba(255,255,255,0.12);
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 8px; color: #ffffff;
-  font-family: 'Outfit', sans-serif; font-size: 0.82rem; font-weight: 500;
-  padding: 7px 14px; cursor: pointer; transition: background 0.2s;
+  background: #030194;
+  border: none; border-radius: 8px;
+  color: #ffffff;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.82rem; font-weight: 600;
+  padding: 8px 16px; cursor: pointer;
+  transition: background 0.2s; white-space: nowrap;
 }
-.logout-btn:hover { background: rgba(255,255,255,0.22); }
+.logout-btn:hover { background: #0096c7; }
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .user-details { display: none; }
+  .brand-name { font-size: 0.9rem; }
+}
+
+@media (max-width: 768px) {
+  .topbar { padding: 0 10px; }
+  .brand-name { font-size: 0.82rem; max-width: 130px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .user-details { display: none; }
+  .logout-btn span { display: none; }
+  .logout-btn { padding: 8px 10px; }
+}
+
+@media (max-width: 400px) {
+  .brand-name { display: none; }
+}

@@ -3,14 +3,34 @@
 
 .layout-body {
   display: flex;
-  margin-top: 60px; /* topbar height */
+  margin-top: 60px;
   min-height: calc(100vh - 60px);
 }
 
 .content-area {
   flex: 1;
   padding: 24px;
-  background: #f0f4ff;
-  transition: margin-left 0.3s ease;
+  background: url('/assets/USTP (2).jpg') center center / cover no-repeat fixed;
+  transition: all 0.3s ease;
   overflow-y: auto;
+  min-width: 0;
+}
+
+/* Overlay for mobile */
+.sidebar-overlay {
+  display: none;
+  position: fixed; top: 60px; left: 0;
+  width: 100%; height: calc(100vh - 60px);
+  background: rgba(0,0,0,0.4); z-index: 998;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .content-area { padding: 18px; }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .content-area { padding: 14px; }
+  .sidebar-overlay { display: block; }
 }

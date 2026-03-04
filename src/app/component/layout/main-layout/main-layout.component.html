@@ -1,7 +1,11 @@
 <!-- main-layout.component.html -->
 <div class="layout-wrapper">
+
   <!-- Topbar -->
   <app-topbar (toggleSidebar)="onToggleSidebar()"></app-topbar>
+
+  <!-- Overlay for mobile -->
+  <div class="sidebar-overlay" *ngIf="sidebarOpen" (click)="onToggleSidebar()"></div>
 
   <!-- Below topbar -->
   <div class="layout-body">
@@ -9,8 +13,9 @@
     <app-sidebar [isOpen]="sidebarOpen"></app-sidebar>
 
     <!-- Content Area -->
-    <main class="content-area" [class.expanded]="!sidebarOpen">
+    <main class="content-area">
       <router-outlet></router-outlet>
     </main>
   </div>
+
 </div>

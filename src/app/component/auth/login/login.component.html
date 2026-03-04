@@ -1,33 +1,32 @@
 
-<!-- src/app/component/auth/login/login.component.html -->
 <div class="login-wrapper">
   <div class="login-card">
 
-    <!-- Logo -->
-    <div class="login-logo">
-      <img src="assets/ustp-logo.png" alt="USTP Logo" class="logo-img" />
-    </div>
+    
+<div class="login-logo">
+  <img src="assets/ustp-logo.png" alt="USTP Logo" class="logo-img"
+    onerror="this.style.display='none'" />
+</div>
 
-    <!-- Title -->
+  
     <h2 class="login-title">Student Organization</h2>
-    <p class="login-subtitle">Sign in to your account</p>
+    <p class="login-subtitle">USTP - University of Science and Technology</p>
 
-    <!-- Email -->
     <div class="form-group">
-      <label class="form-label">Email Address</label>
+      <label class="form-label">Username / Email / Student ID</label>
       <div class="input-wrapper">
         <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
           viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
           stroke-linecap="round" stroke-linejoin="round">
-          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-          <polyline points="22,6 12,13 2,6"/>
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
         </svg>
-        <input type="email" class="form-input" placeholder="Enter your email"
-          [(ngModel)]="email" name="email" />
+        <input type="text" class="form-input" placeholder="Enter your credentials"
+          [(ngModel)]="credential" name="credential" />
       </div>
     </div>
 
-    <!-- Password -->
+   
     <div class="form-group">
       <label class="form-label">Password</label>
       <div class="input-wrapper">
@@ -42,19 +41,19 @@
       </div>
     </div>
 
-    <!-- Login Button -->
+   
     <button class="login-btn" (click)="onLogin()" [disabled]="isLoading">
-      <span *ngIf="!isLoading">Sign In</span>
-      <span *ngIf="isLoading">Signing in...</span>
+      <span *ngIf="!isLoading">Log In</span>
+      <span *ngIf="isLoading">logging in...</span>
     </button>
 
-    <!-- Demo credentials -->
     <div class="demo-box">
-      <p class="demo-title">Demo Credentials</p>
-      <p class="demo-item">Admin: admin&#64;ustp.edu.ph / admin123</p>
-      <p class="demo-item">Officer: officer&#64;ustp.edu.ph/ officer123</p>
-      
+      <p class="demo-title">Demo Credentials:</p>
+      <p class="demo-item"><strong>Admin:</strong> admin&#64;ustp.edu.ph / admin123</p>
+      <p class="demo-item"><strong>Officer:</strong> officer&#64;gmail.com / officer123</p>
+      <p class="demo-item"><strong>Student:</strong> 2024303763 / student123</p>
     </div>
 
   </div>
 </div>
+

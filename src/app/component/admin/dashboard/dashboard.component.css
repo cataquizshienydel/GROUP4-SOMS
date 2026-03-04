@@ -1,6 +1,4 @@
-/* admin-dashboard.component.css */
 
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap');
 
 :host {
   font-family: 'Outfit', sans-serif;
@@ -8,14 +6,15 @@
 
 .dashboard-wrapper {
   min-height: 100vh;
-  background: #f0f4ff;
+  background: 
+    linear-gradient(135deg, rgba(61, 82, 104, 0.3) 0%, rgba(198, 206, 214, 0.3) 50%, rgba(26, 58, 92, 0.30)100%),
+    url('/assets/USTP (2).jpg') center center / cover repeat fixed;
   padding: 20px 16px 40px;
-  display: flex;
+  display: flex;  
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
 }
 
-/* Header */
 .dashboard-header {
   width: 100%;
   max-width: 420px;
@@ -37,7 +36,7 @@
 .org-name {
   font-size: 1.1rem;
   font-weight: 700;
-  color: #ffffff;
+  color: #391fcc;
   margin: 0;
 }
 
@@ -55,7 +54,7 @@
   background: rgba(255,255,255,0.15);
   border: 1px solid rgba(255,255,255,0.25);
   border-radius: 10px;
-  color: #ffffff;
+  color: #391fcc;
   font-family: 'Outfit', sans-serif;
   font-size: 0.85rem;
   font-weight: 500;
@@ -71,7 +70,6 @@
 /* QR Section */
 .qr-section {
   width: 100%;
-  max-width: 420px;
   margin-bottom: 16px;
 }
 
@@ -102,20 +100,22 @@
 /* Announcements */
 .announcements-container {
   width: 100%;
-  max-width: 420px;
+  max-width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 16px;
+  padding: 0;
 }
 
 .announcement-card {
-  background: linear-gradient(160deg, #2a4a8a 0%, #1e3d78 100%);
+  width: 100%;
+  background: rgba(30, 61, 120, 0.85);
+  backdrop-filter: blur(10px);
   border-radius: 16px;
-  padding: 18px 20px;
-  box-shadow: 0 4px 16px rgba(30, 61, 120, 0.25);
-  animation: fadeIn 0.3s ease forwards;
+  padding: 20px 24px;
+  border: 1px solid rgba(255,255,255,0.15);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
 }
-
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
@@ -223,4 +223,23 @@
 
 .reject-btn:hover {
   background: rgba(239, 68, 68, 0.3);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .dashboard-wrapper { padding: 16px; }
+  .qr-section, .announcements-container { max-width: 100%; }
+}
+
+@media (max-width: 768px) {
+  .dashboard-wrapper { padding: 12px; }
+  .announcement-card { padding: 14px; }
+  .card-actions { flex-direction: column; gap: 8px; }
+  .approve-btn, .reject-btn { width: 100%; justify-content: center; }
+}
+
+@media (max-width: 480px) {
+  .announcement-title { font-size: 0.88rem; }
+  .card-content { font-size: 0.8rem; }
+  .status-badge { font-size: 0.7rem; padding: 4px 8px; }
 }

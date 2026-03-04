@@ -1,7 +1,15 @@
 // student-dashboard.component.ts
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+
+interface Comment {
+  id: number;
+  author: string;
+  text: string;
+  time: string;
+}
 
 interface Announcement {
   id: number;
@@ -16,14 +24,18 @@ interface Announcement {
   likes: number;
   comments: number;
   liked: boolean;
+  disLiked: boolean;
+  showComments: boolean;
+  commentList: Comment[];
+  newComment: string;
 }
 
 @Component({
   selector: 'app-student-dashboard',
   standalone: true,
-  imports: [CommonModule],
- templateUrl: './dashboard.component.html',
-styleUrls: ['./dashboard.component.css']
+  imports: [CommonModule, FormsModule],
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.css']
 })
 export class StudentDashboardComponent implements OnInit {
 
@@ -43,7 +55,11 @@ export class StudentDashboardComponent implements OnInit {
       image: 'assets/ustp-logo.png',
       likes: 0,
       comments: 0,
-      liked: false
+      liked: false,
+      disLiked: false,
+      showComments: false,
+      commentList: [],
+      newComment: ''
     },
     {
       id: 2,
@@ -56,7 +72,13 @@ export class StudentDashboardComponent implements OnInit {
       status: 'approved',
       likes: 1,
       comments: 1,
-      liked: false
+      liked: false,
+      disLiked: false,
+      showComments: false,
+      commentList: [
+        { id: 1, author: 'Benjamin', text: 'Looking forward to this semester!', time: 'Jan 20' }
+      ],
+      newComment: ''
     },
     {
       id: 3,
@@ -69,7 +91,11 @@ export class StudentDashboardComponent implements OnInit {
       status: 'approved',
       likes: 0,
       comments: 0,
-      liked: false
+      liked: false,
+      disLiked: false,
+      showComments: false,
+      commentList: [],
+      newComment: ''
     }
   ];
 
@@ -93,13 +119,44 @@ export class StudentDashboardComponent implements OnInit {
     } else {
       announcement.likes++;
       announcement.liked = true;
+      if (announcement.disLiked) {
+        announcement.disLiked = false;
+      }
     }
   }
 
-  toggleDislike(announcement: Announcement): void {}
+  toggleDislike(announcement: Announcement): void {
+    if (announcement.disLiked) {
+      announcement.disLiked = false;
+    } else {
+      announcement.disLiked = true;
+      if (announcement.liked) {
+        announcement.liked = false;
+        announcement.likes--;
+      }
+    }
+  }
 
   toggleComment(announcement: Announcement): void {
-    alert('Comments feature coming soon!');
+    announcement.showComments = !announcement.showComments;
+  }
+
+  submitComment(announcement: Announcement): void {
+    const text = announcement.newComment.trim();
+    if (!text) return;
+    announcement.commentList.push({
+      id: announcement.commentList.length + 1,
+      author: 'Benjamin',
+      text: text,
+      time: 'Just now'
+    });
+    announcement.comments++;
+    announcement.newComment = '';
+  }
+
+  deleteComment(announcement: Announcement, commentId: number): void {
+    announcement.commentList = announcement.commentList.filter(c => c.id !== commentId);
+    announcement.comments--;
   }
 
   goToEvents(): void {

@@ -1,5 +1,5 @@
-// src/app/component/layout/main-layout/main-layout.component.ts
-import { Component } from '@angular/core';
+// main-layout.component.ts
+import { Component, OnInit, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { TopbarComponent } from '../../shared/topbar/topbar.component';
@@ -12,8 +12,28 @@ import { SidebarComponent } from '../../shared/sidebar/sidebar.component';
   templateUrl: './main-layout.component.html',
   styleUrls: ['./main-layout.component.css']
 })
-export class MainLayoutComponent {
+export class MainLayoutComponent implements OnInit {
   sidebarOpen: boolean = true;
+
+  ngOnInit(): void {
+    // Auto collapse on mobile/tablet on load
+    this.checkScreenSize();
+  }
+
+  @HostListener('window:resize')
+  onResize(): void {
+    this.checkScreenSize();
+  }
+
+  checkScreenSize(): void {
+    if (window.innerWidth <= 768) {
+      this.sidebarOpen = false; // hidden on mobile
+    } else if (window.innerWidth <= 1024) {
+      this.sidebarOpen = false; // collapsed on tablet
+    } else {
+      this.sidebarOpen = true; // open on PC
+    }
+  }
 
   onToggleSidebar(): void {
     this.sidebarOpen = !this.sidebarOpen;

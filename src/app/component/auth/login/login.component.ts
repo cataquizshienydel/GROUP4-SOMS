@@ -1,4 +1,5 @@
 
+// login.component.ts
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -15,18 +16,18 @@ import Swal from 'sweetalert2';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  email: string = '';
+  credential: string = '';
   password: string = '';
   isLoading: boolean = false;
 
   constructor(private authService: AuthService, private router: Router) {}
 
   onLogin(): void {
-    if (!this.email.trim() || !this.password.trim()) {
+    if (!this.credential.trim() || !this.password.trim()) {
       Swal.fire({
         icon: 'warning',
         title: 'Missing Fields',
-        text: 'Please enter your email and password.',
+        text: 'Please enter your credentials and password.',
         confirmButtonColor: '#2a4a8a'
       });
       return;
@@ -34,7 +35,13 @@ export class LoginComponent {
 
     this.isLoading = true;
 
-    this.authService.login({ email: this.email, password: this.password }).subscribe({
+    // Auto-detect: email contains '@', otherwise treat as studentId
+    const isEmail = this.credential.includes('@');
+    const loginData = isEmail
+      ? { email: this.credential, password: this.password }
+      : { studentId: this.credential, password: this.password };
+
+    this.authService.login(loginData).subscribe({
       next: (users) => {
         this.isLoading = false;
         if (users && users.length > 0) {
@@ -46,8 +53,7 @@ export class LoginComponent {
             title: `Welcome, ${user.name}!`,
             text: `Logged in as ${user.role.toUpperCase()}`,
             timer: 1500,
-            showConfirmButton: false,
-            confirmButtonColor: '#2a4a8a'
+            showConfirmButton: false
           }).then(() => {
             if (user.role === 'admin') {
               this.router.navigate(['/admin/dashboard']);
@@ -61,7 +67,7 @@ export class LoginComponent {
           Swal.fire({
             icon: 'error',
             title: 'Login Failed',
-            text: 'Invalid email or password. Please try again.',
+            text: 'Invalid credentials or password. Please try again.',
             confirmButtonColor: '#2a4a8a'
           });
         }
@@ -71,7 +77,7 @@ export class LoginComponent {
         Swal.fire({
           icon: 'error',
           title: 'Server Error',
-          text: 'Cannot connect to server. Please try again later.',
+          text: 'Cannot connect to server. Make sure JSON Server is running.',
           confirmButtonColor: '#2a4a8a'
         });
       }

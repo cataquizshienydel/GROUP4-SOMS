@@ -1,5 +1,4 @@
-// src/app/component/shared/topbar/topbar.component.ts
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
@@ -9,8 +8,8 @@ import Swal from 'sweetalert2';
   selector: 'app-topbar',
   standalone: true,
   imports: [CommonModule],
- templateUrl: './topbar.component.html',
-styleUrls: ['./topbar.component.css']
+  templateUrl: './topbar.component.html',
+  styleUrls: ['./topbar.component.css']
 })
 export class TopbarComponent {
   @Output() toggleSidebar = new EventEmitter<void>();
@@ -40,13 +39,10 @@ export class TopbarComponent {
         this.authService.logout();
         Swal.fire({
           icon: 'success',
-          title: 'Logged out',
-          text: 'You have been logged out successfully.',
+          title: 'Logged out!',
           timer: 1500,
           showConfirmButton: false
-        }).then(() => {
-          this.router.navigate(['/login']);
-        });
+        }).then(() => this.router.navigate(['/login']));
       }
     });
   }

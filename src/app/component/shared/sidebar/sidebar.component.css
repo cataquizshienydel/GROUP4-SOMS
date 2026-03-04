@@ -1,15 +1,16 @@
-/* sidebar.component.css */
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap');
+
+
 :host { font-family: 'Outfit', sans-serif; display: block; }
 
 .sidebar {
-  width: 240px; min-height: calc(100vh - 60px);
+  width: 240px;
+  min-height: calc(350vh - 60px);
   background: linear-gradient(180deg, #1e3d78 0%, #152d5c 100%);
   padding: 16px 0;
-  transition: width 0.3s ease;
+  transition: width 0.3s ease, transform 0.3s ease;
   display: flex; flex-direction: column;
   box-shadow: 2px 0 12px rgba(0,0,0,0.15);
-  overflow: hidden;
+  overflow: hidden; flex-shrink: 0;
 }
 
 .sidebar.collapsed { width: 64px; }
@@ -39,12 +40,45 @@
 .nav-item {
   display: flex; align-items: center; gap: 12px;
   padding: 11px 12px; border-radius: 10px;
-  color: rgba(255,255,255,0.7); text-decoration: none;
+  color: rgba(242, 242, 245, 0.911); text-decoration: none;
   font-size: 0.88rem; font-weight: 500;
-  transition: all 0.2s; cursor: pointer;
-  white-space: nowrap;
+  transition: all 0.2s; cursor: pointer; white-space: nowrap;
 }
 .nav-item:hover { background: rgba(255,255,255,0.1); color: #fff; }
-.nav-item.active { background: rgba(0,180,216,0.2); color: #00b4d8; border-left: 3px solid #00b4d8; padding-left: 9px; }
+.nav-item.active {
+  background: rgba(0,180,216,0.2); color: #00b4d8;
+  border-left: 3px solid #00b4d8; padding-left: 9px;
+}
 .nav-item svg { flex-shrink: 0; }
 .nav-label { overflow: hidden; text-overflow: ellipsis; }
+
+/* Tablet - auto collapse */
+@media (max-width: 1024px) {
+  .sidebar { width: 64px; }
+  .sidebar .profile-info,
+  .sidebar .nav-label { display: none; }
+  .sidebar-profile { justify-content: center; padding: 10px; }
+  .sidebar-nav { padding: 0 6px; }
+  .nav-item { justify-content: center; padding: 11px; gap: 0; }
+  .nav-item.active { border-left: 3px solid #00b4d8; padding-left: 8px; }
+}
+
+/* Mobile - hidden by default, shown as overlay */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 60px; left: 0;
+    height: calc(100vh - 60px);
+    z-index: 999;
+    transform: translateX(-100%);
+    width: 220px !important;
+  }
+  .sidebar.open {
+    transform: translateX(0);
+  }
+  .sidebar .profile-info,
+  .sidebar .nav-label { display: flex !important; }
+  .sidebar-profile { justify-content: flex-start; padding: 10px 16px; }
+  .sidebar-nav { padding: 0 8px; }
+  .nav-item { justify-content: flex-start; padding: 11px 12px; gap: 12px; }
+}

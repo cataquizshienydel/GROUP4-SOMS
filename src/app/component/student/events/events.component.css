@@ -4,19 +4,23 @@
 :host { font-family: 'Outfit', sans-serif; }
 
 .page-wrapper {
-  min-height: 100vh; background: #f0f4ff;
-  padding: 20px 16px 40px;
-  display: flex; flex-direction: column; align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, rgba(61, 82, 104, 0.3) 0%, rgba(198, 206, 214, 0.3) 50%, rgba(26, 58, 92, 0.30)100%),
+    url('/assets/USTP (2).jpg') center center / cover repeat fixed;
+  padding: 20px 24px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 }
 
 .page-header {
-  width: 100%; max-width: 420px;
+  width: 100%;
   background: linear-gradient(135deg, #2a4a8a 0%, #3a6abf 100%);
-  border-radius: 16px; padding: 16px 20px;
-  margin-bottom: 14px;
-  box-shadow: 0 6px 20px rgba(42, 74, 138, 0.3);
+  border-radius: 16px;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+  color: #ffffff;
 }
-
 .back-btn {
   display: flex; align-items: center; gap: 6px;
   background: none; border: none; color: rgba(255,255,255,0.8);
@@ -29,15 +33,20 @@
 .header-title h2 { font-size: 1.1rem; font-weight: 700; margin: 0; }
 
 .events-container {
-  width: 100%; max-width: 420px;
-  display: flex; flex-direction: column; gap: 14px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .event-card {
-  background: linear-gradient(160deg, #2a4a8a 0%, #1e3d78 100%);
-  border-radius: 16px; padding: 18px 20px;
-  box-shadow: 0 4px 16px rgba(30, 61, 120, 0.25);
-  animation: fadeIn 0.3s ease forwards;
+  width: 100%;
+  background: rgba(30, 61, 120, 0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 20px 24px;
+  border: 1px solid rgba(255,255,255,0.15);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
 }
 
 @keyframes fadeIn {
@@ -61,4 +70,18 @@
 .attendees {
   display: flex; align-items: center; gap: 6px;
   font-size: 0.82rem; color: rgba(255,255,255,0.7);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .page-wrapper { padding: 16px; }
+  .events-container, .page-header { max-width: 100%; }
+}
+@media (max-width: 768px) {
+  .page-wrapper { padding: 12px; }
+  .event-card { padding: 14px; }
+}
+@media (max-width: 480px) {
+  .event-title { font-size: 0.9rem; }
+  .event-content { font-size: 0.8rem; }
 }

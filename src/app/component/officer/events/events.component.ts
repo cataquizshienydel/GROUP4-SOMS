@@ -1,6 +1,7 @@
 // events.component.ts
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
 interface Event {
@@ -18,11 +19,22 @@ interface Event {
 @Component({
   selector: 'app-events',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './events.component.html',
   styleUrls: ['./events.component.css']
 })
 export class EventsComponent {
+
+  // Modal state
+  showCreateModal = false;
+  newEvent = {
+    title: '',
+    description: '',
+    date: '',
+    time: '',
+    location: '',
+    course: 'IT'
+  };
 
   events: Event[] = [
     {
@@ -56,7 +68,43 @@ export class EventsComponent {
   }
 
   createEvent(): void {
-    alert('Create Event feature coming soon!');
+    this.showCreateModal = true;
+  }
+
+  closeModal(): void {
+    this.showCreateModal = false;
+    this.resetForm();
+  }
+
+  resetForm(): void {
+    this.newEvent = { title: '', description: '', date: '', time: '', location: '', course: 'IT' };
+  }
+
+  submitEvent(): void {
+    if (!this.newEvent.title || !this.newEvent.date || !this.newEvent.time || !this.newEvent.location) return;
+
+    const formatted = new Date(this.newEvent.date).toLocaleDateString('en-US', {
+      weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+    });
+
+    const [h, m] = this.newEvent.time.split(':');
+    const hour = parseInt(h);
+    const ampm = hour >= 12 ? 'PM' : 'AM';
+    const formattedTime = `${hour % 12 || 12}:${m} ${ampm}`;
+
+    this.events.push({
+      id: this.events.length + 1,
+      title: this.newEvent.title,
+      author: 'Officer John',
+      course: this.newEvent.course,
+      description: this.newEvent.description,
+      date: formatted,
+      time: formattedTime,
+      location: this.newEvent.location,
+      attendees: 0
+    });
+
+    this.closeModal();
   }
 
   showQR(event: Event): void {
