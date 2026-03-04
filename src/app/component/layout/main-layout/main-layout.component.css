@@ -1,4 +1,4 @@
-/* main-layout.component.css */
+
 .layout-wrapper { display: flex; flex-direction: column; min-height: 100vh; }
 
 .layout-body {
@@ -16,7 +16,7 @@
   min-width: 0;
 }
 
-/* Overlay for mobile */
+
 .sidebar-overlay {
   display: none;
   position: fixed; top: 60px; left: 0;
@@ -24,12 +24,12 @@
   background: rgba(0,0,0,0.4); z-index: 998;
 }
 
-/* Tablet */
+
 @media (max-width: 1024px) {
   .content-area { padding: 18px; }
 }
 
-/* Mobile */
+
 @media (max-width: 768px) {
   .content-area { padding: 14px; }
   .sidebar-overlay { display: block; }
