@@ -1,7 +1,7 @@
-<!-- events.component.html -->
+
 <div class="page-wrapper">
 
-  <!-- Header -->
+
   <div class="page-header">
     <button class="back-btn" (click)="goBack()">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
@@ -31,7 +31,7 @@
     </div>
   </div>
 
-  <!-- Events List -->
+
   <div class="events-container">
     <div *ngFor="let event of events" class="event-card">
       <h3 class="event-title">{{ event.title }}</h3>
@@ -90,7 +90,7 @@
     </div>
   </div>
 
-  <!-- Create Event Modal -->
+
   <div class="modal-overlay" *ngIf="showCreateModal" (click)="closeModal()">
     <div class="modal" (click)="$event.stopPropagation()">
       <div class="modal-header">
