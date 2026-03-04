@@ -1,4 +1,4 @@
-/* events.component.css */
+
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap');
 
 :host { font-family: 'Outfit', sans-serif; }
@@ -68,7 +68,7 @@
 }
 .create-event-btn:hover { background: rgba(255,255,255,0.25); }
 
-/* Events */
+
 .events-container {
   width: 100%;
   display: flex;
@@ -143,7 +143,7 @@
 }
 .show-qr-btn:hover { transform: translateY(-1px); box-shadow: 0 5px 14px rgba(0,0,0,0.3); }
 
-/* ── Modal ── */
+
 .modal-overlay {
   position: fixed;
   inset: 0;
