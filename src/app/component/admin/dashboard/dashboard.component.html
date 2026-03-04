@@ -1,7 +1,7 @@
-<!-- admin-dashboard.component.html -->
+
 <div class="dashboard-wrapper">
 
-  <!-- QR Code Button -->
+
   <div class="qr-section">
     <button class="qr-btn" (click)="goToQrCodes()">
       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
@@ -15,11 +15,11 @@
     </button>
   </div>
 
-  <!-- Announcements List -->
+
   <div class="announcements-container">
     <div *ngFor="let announcement of announcements" class="announcement-card">
 
-      <!-- Card Header -->
+
       <div class="card-header">
         <h3 class="announcement-title">{{ announcement.title }}</h3>
         <span class="status-badge" [ngClass]="announcement.status === 'approved' ? 'approved' : 'pending'">
@@ -39,16 +39,16 @@
         </span>
       </div>
 
-      <!-- Meta -->
+
       <div class="card-meta">
         <span>By {{ announcement.author }} • {{ announcement.date }}</span>
       </div>
       <div class="card-courses">{{ announcement.courses }}</div>
 
-      <!-- Content -->
+
       <p class="card-content">{{ announcement.content }}</p>
 
-      <!-- Actions for pending -->
+  
       <div *ngIf="announcement.status === 'pending'" class="card-actions">
         <button class="approve-btn" (click)="approveAnnouncement(announcement)">
           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
