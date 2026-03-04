@@ -4,7 +4,7 @@
 
 :host { font-family: 'Outfit', sans-serif; }
 
-/* Logo */
+
 .login-logo {
   margin-bottom: 16px;
   display: flex;
@@ -41,7 +41,7 @@
   box-shadow: 0 20px 60px rgba(0,0,0,0.3);
 }
 
-/* Avatar */
+
 .login-avatar {
   width: 80px; height: 80px; border-radius: 50%;
   background: rgba(255,255,255,0.15);
@@ -60,7 +60,7 @@
   margin: 0 0 28px; text-align: center;
 }
 
-/* Form */
+
 .form-group {
   width: 100%; margin-bottom: 14px;
   display: flex; flex-direction: column; gap: 6px;
@@ -91,7 +91,7 @@
 .form-input::placeholder { color: rgba(255,255,255,0.4); }
 .form-input:focus { border-color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.15); }
 
-/* Button */
+
 .login-btn {
   width: 100%; padding: 13px;
   background: #2d5bb5;
@@ -121,7 +121,7 @@
 }
 .demo-item strong { color: rgba(255,255,255,0.75); }
 
-/* ── RESPONSIVE ── */
+
 @media (max-width: 1024px) {
   .login-card { max-width: 420px; }
 }
