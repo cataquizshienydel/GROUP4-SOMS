@@ -1,6 +1,6 @@
 
 
-/* login.component.css */
+
 
 :host { font-family: 'Outfit', sans-serif; }
 
@@ -106,7 +106,7 @@
 .login-btn:hover:not(:disabled) { background: #3a6abf; transform: translateY(-1px); }
 .login-btn:disabled { opacity: 0.7; cursor: not-allowed; }
 
-/* Demo box */
+
 .demo-box {
   width: 100%;
   text-align: center;
