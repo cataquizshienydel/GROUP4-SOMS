@@ -52,7 +52,7 @@
 }
 .logout-btn:hover { background: #0096c7; }
 
-/* Responsive */
+
 @media (max-width: 1024px) {
   .user-details { display: none; }
   .brand-name { font-size: 0.9rem; }
